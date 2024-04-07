@@ -19,7 +19,7 @@ void dfs(vector<vector<int>> &field, int x, int y)
         int ny = y + dy[i];
 
         // 배추가 심어져 있는 위치라면 재귀적으로 탐색
-        if (nx >= 0 && nx < field.size() && ny >= 0 && ny < field[0].size() && field[nx][ny] == 1)
+        if (nx >= 0 && nx < static_cast<int>(field.size()) && ny >= 0 && ny < static_cast<int>(field[0].size()) && field[nx][ny] == 1)
         {
             dfs(field, nx, ny);
         }
