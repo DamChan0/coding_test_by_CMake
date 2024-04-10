@@ -1,25 +1,39 @@
 {
-    "version": "0.2",
+    "version": "0.2.0",
     "configurations": [
         {
-            "name": "C++ Launch (GDB)",
+            "name": "run1",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/Solution.exe",
+            "program": "",
+            "linux": {
+                "name": "launch",
+                "type": "cppdbg",
+                "request": "launch",
+                "program": "${workspaceFolder}/build/solution",
+                "externalConsole": false
+            },
+            "windows": {
+                "name": "launch",
+                "type": "cppdbg",
+                "request": "launch",
+                "program": "${workspaceFolder}\\build\\solution.exe",
+                "externalConsole": true
+            },
             "args": [],
             "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
+            "cwd": "${workspaceFolder}\\build",
             "environment": [],
-            "externalConsole": false,
             "MIMode": "gdb",
+            "miDebuggerPath": "gdb",
             "setupCommands": [
                 {
-                    "description": "Enable pretty-printing for gdb",
+                    "description": "gdb에 자동 서식 지정 사용",
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "C/C++: g++.exe build active file"
+            "preLaunchTask": "build solution",
         }
     ]
 }
