@@ -4,22 +4,15 @@ project(Solution)
 # Set C and C++ compiler options
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
-set(CMAKE_C_EXTENSIONS OFF)
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -pedantic")
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -pedantic")
-
-set(CMAKE_C_COMPILER gcc)
-set(CMAKE_CXX_COMPILER g++)
 
 # Locate necessary libraries
 
 # Add executable target
 # 언어를 설정합니다.
-set(CPP 1) # C++ 사용
+set(CPP 0) # C++ 사용
 set(C 0) # C 사용
 
 # C++ 코드를 빌드합니다.
@@ -32,8 +25,6 @@ elseif(C)
 endif()
 
 # Enable compiler warnings as errors
-if(CMAKE_C_COMPILER_ID MATCHES "Clang" OR CMAKE_C_COMPILER_ID STREQUAL "GNU")
-    target_compile_options(solution PRIVATE -Werror)
-elseif(CMAKE_C_COMPILER_ID STREQUAL "MSVC")
-    target_compile_options(solution PRIVATE /WX)
-endif()
+
+# Add subdirectory for dfs
+add_subdirectory(dfs)
