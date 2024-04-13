@@ -16,6 +16,7 @@ set(dfs 0) # build dfs dir
 set(bfs 0) # build bfs dir
 set(etc 0) # build bfs dir
 set(greedy 0) # build bfs dir
+set(hesh 0) # build bfs dir
 set(dp 1) # build bfs dir
 
 # Add subdirectory for dfs
@@ -27,6 +28,8 @@ elseif((etc))
 add_subdirectory(etc)
 elseif((greedy))
 add_subdirectory(greedy)
+elseif((hesh))
+add_subdirectory(hesh)
 elseif((dp))
 add_subdirectory(dp)
 endif()
