@@ -14,8 +14,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # 언어를 설정합니다.
 set(dfs 0) # build dfs dir
 set(bfs 0) # build bfs dir
-set(etc 1) # build bfs dir
+set(etc 0) # build bfs dir
 set(greedy 0) # build bfs dir
+set(dp 1) # build bfs dir
 
 # Add subdirectory for dfs
 if(dfs)
@@ -26,4 +27,6 @@ elseif((etc))
 add_subdirectory(etc)
 elseif((greedy))
 add_subdirectory(greedy)
+elseif((dp))
+add_subdirectory(dp)
 endif()
