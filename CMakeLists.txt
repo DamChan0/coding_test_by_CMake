@@ -16,8 +16,8 @@ set(dfs 0) # build dfs dir
 set(bfs 0) # build bfs dir
 set(etc 0) # build bfs dir
 set(greedy 0) # build bfs dir
-set(hesh 0) # build bfs dir
-set(dp 1) # build bfs dir
+set(hesh 1) # build bfs dir
+set(dp 0) # build bfs dir
 
 # Add subdirectory for dfs
 if(dfs)

@@ -3,7 +3,7 @@ set(CMAKE_BUILD_TYPE Debug)
 
 # Set the source files for the dfs target
 set(hesh
-    targetNumber.cpp
+    poketmon.cpp
 )
 
 # Add executable target for dfs in build directory
