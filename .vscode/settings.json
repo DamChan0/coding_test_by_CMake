@@ -71,5 +71,10 @@
   "C_Cpp_Runner.useLinkTimeOptimization": false,
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "C_Cpp.default.compilerPath": "C:\\MinGW\\bin\\g++.exe",
-  "cmake.configureOnOpen": true
+  "cmake.configureOnOpen": true,
+  "CMakeTools.generator": "MinGW Makefiles",
+  "CMakeTools.configureSettings": {
+    "CMAKE_CXX_COMPILER": "g++.exe",
+    "CMAKE_C_COMPILER": "gcc.exe"
+  }
 }
