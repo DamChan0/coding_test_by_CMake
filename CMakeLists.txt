@@ -13,11 +13,17 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Add executable target
 # 언어를 설정합니다.
 set(dfs 0) # build dfs dir
-set(bfs 1) # build bfs dir
+set(bfs 0) # build bfs dir
+set(etc 1) # build bfs dir
+set(greedy 0) # build bfs dir
 
 # Add subdirectory for dfs
 if(dfs)
 add_subdirectory(dfs)
 elseif((bfs))
 add_subdirectory(bfs)
+elseif((etc))
+add_subdirectory(etc)
+elseif((greedy))
+add_subdirectory(greedy)
 endif()
