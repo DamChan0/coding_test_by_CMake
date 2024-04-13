@@ -22,8 +22,8 @@ set_target_properties(solution PROPERTIES
 ```
 맨 아래줄 추가하셔야 build 파일에 실행파일 만들어지고 그래야 launch.json으로 디버깅할 수 있습니다
 
-2. Root CMakeLists.txt 수정
-   아래에있는 add_subdirectory()에 폴더 이름을 추가하고 원하는 것만 빌드 할 수 있돌고 set 함수로 변수 선언과 초기화해서 사용하시면 됩니다.
+2. Root CMakeLists.txt 수정 </br>
+    add_subdirectory()에 폴더 이름을 추가하고 원하는 것만 빌드 할 수 있돌고 set 함수로 변수 선언과 초기화해서 사용하시면 됩니다.
 ```cmake
 cmake_minimum_required(VERSION 3.0)
 project(Solution)
