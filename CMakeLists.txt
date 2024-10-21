@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.5)
 project(Solution)
 
 # Set C and C++ compiler options
@@ -16,20 +16,20 @@ set(dfs 0) # build dfs dir
 set(bfs 0) # build bfs dir
 set(etc 0) # build bfs dir
 set(greedy 0) # build bfs dir
-set(hesh 1) # build bfs dir
-set(dp 0) # build bfs dir
+set(hesh 0) # build bfs dir
+set(dp 1) # build bfs dir
 
 # Add subdirectory for dfs
 if(dfs)
-add_subdirectory(dfs)
+    add_subdirectory(dfs)
 elseif((bfs))
-add_subdirectory(bfs)
+    add_subdirectory(bfs)
 elseif((etc))
-add_subdirectory(etc)
+    add_subdirectory(etc)
 elseif((greedy))
-add_subdirectory(greedy)
+    add_subdirectory(greedy)
 elseif((hesh))
-add_subdirectory(hesh)
+    add_subdirectory(hesh)
 elseif((dp))
-add_subdirectory(dp)
+    add_subdirectory(dp)
 endif()

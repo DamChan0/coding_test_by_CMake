@@ -1,52 +1,58 @@
 #include <iostream>
-#include <string>
-#include <unordered_set>
 #include <vector>
+
 using namespace std;
 
-int solution(int N, int number) {
-  // 각 N의 사용 횟수에 따른 가능한 수들을 저장하는 배열
-  vector<unordered_set<int>> possible_numbers(8);  // 최대 사용 횟수는 8
-  int base = 0;
+// 벌집의 숫자를 시계 방향으로 채우는 함수
+void fillHexagon(int n, vector<int> &result)
+{
+  int num = 1;
+  result.push_back(num); // 첫 번째 숫자 1 추가
 
-  // N이 한 번 사용된 경우부터 최대 8번 사용된 경우까지 탐색
-  for (int i = 0; i < 8; ++i) {
-    base = base * 10 + N;  // N이 i+1번 반복된 수를 만듦
+  // n층의 벌집을 채우기 위한 루프
+  for (int i = 0; i < n; ++i)
+  {
+    // n층의 시작 숫자와 종료 숫자 계산
+    int start = num + 1;
+    int end = num + (6 * (i + 1));
 
-    // 이번 사용 횟수에 가능한 수에 추가
-    possible_numbers[i].insert(base);
-
-    // 이전 사용 횟수들의 조합으로 새로운 수 생성
-    for (int j = 0; j < i; ++j) {
-      for (const int& op1 : possible_numbers[j]) {
-        for (const int& op2 : possible_numbers[i - j - 1]) {
-          possible_numbers[i].insert(op1 + op2);
-          possible_numbers[i].insert(op1 - op2);
-          possible_numbers[i].insert(op1 * op2);
-          if (op2 != 0) possible_numbers[i].insert(op1 / op2);
-        }
+    // 짝수층일 때는 오른쪽 방향으로 숫자를 추가
+    if (i % 2 == 0)
+    {
+      for (int j = start; j <= end; ++j)
+      {
+        result.push_back(j);
+      }
+    }
+    // 홀수층일 때는 왼쪽 방향으로 숫자를 추가
+    else
+    {
+      for (int j = end; j >= start; --j)
+      {
+        result.push_back(j);
       }
     }
 
-    // 찾고자 하는 수가 생성되었는지 확인
-    if (possible_numbers[i].count(number) > 0) return i + 1;
+    num = end; // 다음 층의 시작 숫자 갱신
   }
-
-  // 8보다 큰 경우는 -1 반환
-  return -1;
 }
 
-// 예시를 실행하는 메인 함수
-int main() {
-  int N1 = 5, number1 = 12;
-  int N2 = 2, number2 = 11;
+int main()
+{
+  int n;
+  cout << "Enter the value of n: ";
+  cin >> n;
 
-  int result1 = solution(N1, number1);
-  int result2 = solution(N2, number2);
+  vector<int> result;
+  fillHexagon(n, result);
 
   // 결과 출력
-  cout << "Result 1: " << result1 << endl;  // 예상 결과: 4
-  cout << "Result 2: " << result2 << endl;  // 예상 결과: 3
+  cout << "Result: ";
+  for (int num : result)
+  {
+    cout << num << " ";
+  }
+  cout << endl;
 
   return 0;
 }
