@@ -15,43 +15,47 @@ using namespace std;
 
 const int MAX_N = 10000;
 
-int main() {
-  ios_base::sync_with_stdio(false);
-  cin.tie(nullptr);
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
 
-  vector<vector<int>> dp(MAX_N + 1, vector<int>(4, 0));
+    vector<vector<int>> dp(MAX_N + 1, vector<int>(4, 0));
 
-  // 초기 조건 설정
-  dp[1][1] = 1;
-  dp[2][1] = 1;
-  dp[2][2] = 1;
-  dp[3][1] = 1;
-  dp[3][2] = 1;
-  dp[3][3] = 1;
+    // 초기 조건 설정
+    dp[1][1] = 1;
+    dp[2][1] = 1;
+    dp[2][2] = 1;
+    dp[3][1] = 1;
+    dp[3][2] = 1;
+    dp[3][3] = 1;
 
-  // DP 배열 채우기
-  for (int i = 4; i <= MAX_N; i++) {
-    dp[i][1] = dp[i - 1][1];
-    dp[i][2] = dp[i - 2][1] + dp[i - 2][2];
-    dp[i][3] = dp[i - 3][1] + dp[i - 3][2] + dp[i - 3][3];
-  }
+    // DP 배열 채우기
+    for (int i = 4; i <= MAX_N; i++)
+    {
+        dp[i][1] = dp[i - 1][1];
+        dp[i][2] = dp[i - 2][1] + dp[i - 2][2];
+        dp[i][3] = dp[i - 3][1] + dp[i - 3][2] + dp[i - 3][3];
+    }
 
-  int T;
-  cin >> T;
+    int T;
+    cin >> T;
 
-  std::vector<int> ans;
+    std::vector<int> ans;
 
-  while (T--) {
-    int n;
-    cin >> n;
-    ans.push_back(dp[n][1] + dp[n][2] + dp[n][3]);
-  }
+    while (T--)
+    {
+        int n;
+        cin >> n;
+        ans.push_back(dp[n][1] + dp[n][2] + dp[n][3]);
+    }
 
-  for (int i = 0; i < ans.size(); i++) {
-    cout << ans[i] << '\n';
-  }
+    for (int i = 0; i < ans.size(); i++)
+    {
+        cout << ans[i] << '\n';
+    }
 
-  return 0;
+    return 0;
 }
 
 /*dp[n][1] = dp[n-1][1]입니다. (dp[n-1][2] + dp[n-1][3]은 포함되지 않습니다)
@@ -69,9 +73,4 @@ dp[n][2] = dp[n-2][1] + dp[n-2][2]입니다.
 
 dp[n][3] = dp[n-3][1] + dp[n-3][2] + dp[n-3][3]입니다.
 
-이유: n-3을 만드는 모든 방법에 3을 더해 n을 만들 수 있습니다.
-
-
-dp[n-1][1] + dp[n-1][2] + dp[n-1][3] + dp[n-2][1] + dp[n-2][2] + dp[n-3][1] +
-dp[n-3][2] + dp[n-3][3]
-*/
+이유: n-3을 만드는 모든 방법에 3을 더해 n을 만들 수 있습니다.*/
